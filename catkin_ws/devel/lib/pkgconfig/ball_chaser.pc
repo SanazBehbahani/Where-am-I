@@ -1,0 +1,8 @@
+prefix=/home/robond/Desktop/roboND/version-control/project2/catkin_ws/devel
+
+Name: ball_chaser
+Description: Description of ball_chaser
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/robond/Desktop/roboND/version-control/project2/catkin_ws/devel/lib 
+Requires: 
