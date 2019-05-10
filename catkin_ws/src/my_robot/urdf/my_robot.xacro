@@ -2,6 +2,44 @@
 
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find my_robot)/urdf/my_robot.gazebo" />
+  
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.203125 0.23828125 0.28515625 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.0 0.8 0.0 1.0"/>
+  </material>
+  <material name="grey">
+    <color rgba="0.2 0.2 0.2 1.0"/>
+  </material>
+  <material name="orange">
+    <color rgba="1.0 0.423529411765 0.0392156862745 1.0"/>
+  </material>
+  <material name="brown">
+    <color rgba="0.870588235294 0.811764705882 0.764705882353 1.0"/>
+  </material>
+  <material name="red">
+    <color rgba="0.80078125 0.12890625 0.1328125 1.0"/>
+  </material>
+  <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>  
+  
+  <gazebo reference="chassis">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="left_wheel">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="right_wheel">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="camera">
+    <material>Gazebo/Red</material>
+  </gazebo>
 
   <link name="robot_footprint"></link>
 
@@ -156,14 +194,14 @@
       />
     </inertial>
 
-    <collision name='collision'>
+    <collision name='camera_collision'>
       <origin xyz="0 0 0" rpy=" 0 0 0"/> 
       <geometry>
         <box size=".05 .05 .05"/>
       </geometry>
     </collision>
 
-    <visual name='visual'>
+    <visual name='camera_visual'>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
         <box size=".05 .05 .05"/>
@@ -189,14 +227,14 @@
       />
     </inertial>
 
-    <collision name='collision'>
+    <collision name='hokuyo_collision'>
       <origin xyz="0 0 0" rpy=" 0 0 0"/> 
       <geometry>
         <box size=".1 .1 .1"/>
       </geometry>
     </collision>
 
-    <visual name='visual'>
+    <visual name='hokuyo_visual'>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
 	<mesh filename = "package://my_robot/meshes/hokuyo.dae"/>
