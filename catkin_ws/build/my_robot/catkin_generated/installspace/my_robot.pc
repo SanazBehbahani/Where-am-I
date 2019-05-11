@@ -1,8 +1,0 @@
-prefix=/home/robond/Desktop/roboND/version-control/project2/catkin_ws/install
-
-Name: my_robot
-Description: Description of my_robot
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/robond/Desktop/roboND/version-control/project2/catkin_ws/install/lib 
-Requires: 
