@@ -556,6 +556,19 @@ std_msgs_generate_messages_lisp/fast:
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named process_image
+
+# Build rule for target.
+process_image: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 process_image
+.PHONY : process_image
+
+# fast build rule for target.
+process_image/fast:
+	$(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/build
+.PHONY : process_image/fast
+
+#=============================================================================
 # Target rules for targets named roscpp_generate_messages_lisp
 
 # Build rule for target.
@@ -676,6 +689,7 @@ help:
 	@echo "... ball_chaser_generate_messages"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... process_image"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... _ball_chaser_generate_messages_check_deps_DriveToTarget"

@@ -358,6 +358,7 @@ clean: my_robot/CMakeFiles/_catkin_empty_exported_target.dir/clean
 # Convenience name for "all" pass in the directory.
 ball_chaser/all: ball_chaser/CMakeFiles/drive_bot.dir/all
 ball_chaser/all: ball_chaser/CMakeFiles/ball_chaser_generate_messages.dir/all
+ball_chaser/all: ball_chaser/CMakeFiles/process_image.dir/all
 
 .PHONY : ball_chaser/all
 
@@ -384,6 +385,7 @@ ball_chaser/clean: ball_chaser/CMakeFiles/ball_chaser_generate_messages_py.dir/c
 ball_chaser/clean: ball_chaser/CMakeFiles/ball_chaser_generate_messages.dir/clean
 ball_chaser/clean: ball_chaser/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 ball_chaser/clean: ball_chaser/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+ball_chaser/clean: ball_chaser/CMakeFiles/process_image.dir/clean
 ball_chaser/clean: ball_chaser/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 ball_chaser/clean: ball_chaser/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 ball_chaser/clean: ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/clean
@@ -1116,6 +1118,43 @@ ball_chaser/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
 
 # clean rule for target.
 clean: ball_chaser/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target ball_chaser/CMakeFiles/process_image.dir
+
+# All Build rule for target.
+ball_chaser/CMakeFiles/process_image.dir/all: ball_chaser/CMakeFiles/ball_chaser_generate_messages_cpp.dir/all
+	$(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/depend
+	$(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robond/Desktop/roboND/version-control/project2/catkin_ws/build/CMakeFiles --progress-num=14,15 "Built target process_image"
+.PHONY : ball_chaser/CMakeFiles/process_image.dir/all
+
+# Include target in all.
+all: ball_chaser/CMakeFiles/process_image.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+ball_chaser/CMakeFiles/process_image.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robond/Desktop/roboND/version-control/project2/catkin_ws/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/process_image.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robond/Desktop/roboND/version-control/project2/catkin_ws/build/CMakeFiles 0
+.PHONY : ball_chaser/CMakeFiles/process_image.dir/rule
+
+# Convenience name for target.
+process_image: ball_chaser/CMakeFiles/process_image.dir/rule
+
+.PHONY : process_image
+
+# clean rule for target.
+ball_chaser/CMakeFiles/process_image.dir/clean:
+	$(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/clean
+.PHONY : ball_chaser/CMakeFiles/process_image.dir/clean
+
+# clean rule for target.
+clean: ball_chaser/CMakeFiles/process_image.dir/clean
 
 .PHONY : clean
 
