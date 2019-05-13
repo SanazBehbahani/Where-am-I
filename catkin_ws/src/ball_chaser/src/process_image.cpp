@@ -9,10 +9,11 @@ ros::ServiceClient client;
 void drive_robot(float lin_x, float ang_z)
 {
     // TODO: Request a service and pass the velocities to it to drive the robot
-    ROS_INFO_STREAM("Driving robot");
+    ROS_INFO_STREAM("Driving the robot");
     ball_chaser::DriveToTarget srv;
     srv.request.linear_x = lin_x;
     srv.request.angular_z = ang_z;
+    client.call(srv);
 
     if(!client.call(srv)){
         ROS_ERROR("Failed to call service command_robot");
@@ -22,12 +23,8 @@ void drive_robot(float lin_x, float ang_z)
 // This callback function continuously executes and reads the image data
 void process_image_callback(const sensor_msgs::Image img)
 {
-
-    int white_pixel = 255;
-    int count = 0;
-    float offset = 0;
-    float lin_x = 0.0;
-    float ang_z = 0.0; 
+    int white_pixel = 0;
+    int x_position_sum = 0;
 
     // TODO: Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
@@ -45,25 +42,42 @@ void process_image_callback(const sensor_msgs::Image img)
     // uint32 step
     // uint8[] data
 
-    // calculate offset from center of picture to center of ball
-    for (int i = 0; i < img.height; i++){
-        for (int j = 0; j < img.step; j++){
-            if (img.data[i * img.step + j] == white_pixel){
-                offset += j - img.step / 2.0;  // calculates offset from the center of picture
-                count++;  // the number of pixels detected
-            }
+    // Scan each pixel looking for a white one (Eacg pixel consists of 3 channels: R, G, and B)
+    for (int i = 0; i < img.data.size(); i+=3){
+        int red_ch = img.data[i];
+	int green_ch = img.data[i+1];
+	int blue_ch = img.data[i+2];
+	
+	if (red_ch == 255 && green_ch == 255 && blue_ch == 255){
+	    int x_position = (i % (img.width * 3)) / 3;
+      	    x_position_sum += x_position;
+            white_pixel += 1;
         }
     }
-    // Define the action
-    if (count ==0){
-        lin_x = 0.0;
-        ang_z = 0.0;
+
+    // Case 1: no white pixel detected -> ball not in the view of the robot
+    if (white_pixel == 0){
+        drive_robot(0.0, 0.0);
     }
-    else{
-        lin_x = 0.1;
-        ang_z = -4.0 * offset / count / (img.step / 2.0); // average offset from -step/2 ~ step/2, normalized, and multiplied by -4 to turn the robot to correct direction
+    // Case 2: white ball in the view of the robot
+    else {
+        int mean_x_position = x_position_sum / white_pixel; // finding center of the ball
+        
+        // Option 1: center in the left of the image -> robot should turn left
+	if (mean_x_position < img.width / 3){
+	    drive_robot(0.5, 0.5);
+        }
+
+	// Option 2: center in the right of the image -> robot should turn right
+	else if (mean_x_position > img.width * 2 / 3){
+	    drive_robot(0.5, -0.5);
+        }
+
+	// Option 3: center of the ball in the middle of the image -> robot moves forward
+	else{
+	    drive_robot(0.5, 0.0);
+    	}
     }
-    drive_robot(lin_x, ang_z);
 }
 
 int main(int argc, char** argv)
