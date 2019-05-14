@@ -19,3 +19,6 @@ The `world.launch` file should launch your world with the white-colored ball and
    
 ## Directory Structure:
 ![md1](https://user-images.githubusercontent.com/7389485/57563287-1ac25780-7351-11e9-85d7-e9fd09e90e20.JPG)
+
+## MyOfficeWorld Environment
+![myworld](https://user-images.githubusercontent.com/7389485/57655141-c73b4e00-758a-11e9-94b8-ba5872852a4d.JPG)
