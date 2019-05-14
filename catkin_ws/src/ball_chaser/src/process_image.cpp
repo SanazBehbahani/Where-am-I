@@ -65,12 +65,12 @@ void process_image_callback(const sensor_msgs::Image img)
         
         // Option 1: center in the left of the image -> robot should turn left
 	if (mean_x_position < img.width / 3){
-	    drive_robot(0.5, 0.5);
+	    drive_robot(0.1, 0.5);
         }
 
 	// Option 2: center in the right of the image -> robot should turn right
 	else if (mean_x_position > img.width * 2 / 3){
-	    drive_robot(0.5, -0.5);
+	    drive_robot(0.1, -0.5);
         }
 
 	// Option 3: center of the ball in the middle of the image -> robot moves forward
