@@ -67,14 +67,14 @@ set(ball_chaser_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(ball_chaser_SOURCE_PREFIX /home/robond/Desktop/roboND/version-control/project2/catkin_ws/src/ball_chaser)
-  set(ball_chaser_DEVEL_PREFIX /home/robond/Desktop/roboND/version-control/project2/catkin_ws/devel)
+  set(ball_chaser_SOURCE_PREFIX /home/robond/Desktop/roboND/Go_Chase_It/catkin_ws/src/ball_chaser)
+  set(ball_chaser_DEVEL_PREFIX /home/robond/Desktop/roboND/Go_Chase_It/catkin_ws/devel)
   set(ball_chaser_INSTALL_PREFIX "")
   set(ball_chaser_PREFIX ${ball_chaser_DEVEL_PREFIX})
 else()
   set(ball_chaser_SOURCE_PREFIX "")
   set(ball_chaser_DEVEL_PREFIX "")
-  set(ball_chaser_INSTALL_PREFIX /home/robond/Desktop/roboND/version-control/project2/catkin_ws/install)
+  set(ball_chaser_INSTALL_PREFIX /home/robond/Desktop/roboND/Go_Chase_It/catkin_ws/install)
   set(ball_chaser_PREFIX ${ball_chaser_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ball_chaser_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/robond/Desktop/roboND/version-control/project2/catkin_ws/devel/include " STREQUAL " ")
+if(NOT "/home/robond/Desktop/roboND/Go_Chase_It/catkin_ws/devel/include " STREQUAL " ")
   set(ball_chaser_INCLUDE_DIRS "")
-  set(_include_dirs "/home/robond/Desktop/roboND/version-control/project2/catkin_ws/devel/include")
+  set(_include_dirs "/home/robond/Desktop/roboND/Go_Chase_It/catkin_ws/devel/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,7 +103,7 @@ if(NOT "/home/robond/Desktop/roboND/version-control/project2/catkin_ws/devel/inc
         message(FATAL_ERROR "Project 'ball_chaser' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'robond <robond@todo.todo>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'ball_chaser' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/robond/Desktop/roboND/version-control/project2/catkin_ws/src/ball_chaser/${idir}'.  Ask the maintainer 'robond <robond@todo.todo>' to fix it.")
+      message(FATAL_ERROR "Project 'ball_chaser' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/robond/Desktop/roboND/Go_Chase_It/catkin_ws/src/ball_chaser/${idir}'.  Ask the maintainer 'robond <robond@todo.todo>' to fix it.")
     endif()
     _list_append_unique(ball_chaser_INCLUDE_DIRS ${include})
   endforeach()
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/robond/Desktop/roboND/version-control/project2/catkin_ws/devel/lib;/home/robond/Desktop/roboND/version-control/project2/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/robond/Desktop/roboND/Go_Chase_It/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
