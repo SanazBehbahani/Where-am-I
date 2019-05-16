@@ -18,4 +18,8 @@ The simulation environment and a robot is imported from Go_Chase_It repository.
 
 
 ### Map Setup
+
 We could generate the map from Gazebo world directly using a ROS package: `pgm_map_creator`.
+
+![m1](https://user-images.githubusercontent.com/7389485/57892561-37004180-77f4-11e9-90fe-16666d707070.JPG)
+
