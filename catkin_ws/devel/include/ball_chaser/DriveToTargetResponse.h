@@ -39,6 +39,7 @@ struct DriveToTargetResponse_
 
 
 
+
   typedef boost::shared_ptr< ::ball_chaser::DriveToTargetResponse_<ContainerAllocator> > Ptr;
   typedef boost::shared_ptr< ::ball_chaser::DriveToTargetResponse_<ContainerAllocator> const> ConstPtr;
 
