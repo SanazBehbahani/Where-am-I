@@ -17,6 +17,24 @@
 //Build shared libraries (DLLs).
 BUILD_SHARED_LIBS:BOOL=ON
 
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=Boost_DIR-NOTFOUND
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=/usr/include
+
+//Boost library directory DEBUG
+Boost_LIBRARY_DIR_DEBUG:PATH=/usr/lib/x86_64-linux-gnu
+
+//Boost library directory RELEASE
+Boost_LIBRARY_DIR_RELEASE:PATH=/usr/lib/x86_64-linux-gnu
+
+//Boost system library (debug)
+Boost_SYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/lib/x86_64-linux-gnu/libboost_system.so
+
+//Boost system library (release)
+Boost_SYSTEM_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libboost_system.so
+
 //List of ';' separated packages to exclude
 CATKIN_BLACKLIST_PACKAGES:STRING=
 
@@ -226,6 +244,33 @@ LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests-2.7
 
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
+//Path to a file.
+PROTOBUF_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+PROTOBUF_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libprotobuf.so
+
+//Path to a library.
+PROTOBUF_LIBRARY_DEBUG:FILEPATH=/usr/lib/x86_64-linux-gnu/libprotobuf.so
+
+//Path to a library.
+PROTOBUF_LITE_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libprotobuf-lite.so
+
+//Path to a library.
+PROTOBUF_LITE_LIBRARY_DEBUG:FILEPATH=/usr/lib/x86_64-linux-gnu/libprotobuf-lite.so
+
+//The Google Protocol Buffers Compiler
+PROTOBUF_PROTOC_EXECUTABLE:FILEPATH=/usr/bin/protoc
+
+//Path to a library.
+PROTOBUF_PROTOC_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libprotoc.so
+
+//Path to a library.
+PROTOBUF_PROTOC_LIBRARY_DEBUG:FILEPATH=/usr/lib/x86_64-linux-gnu/libprotoc.so
+
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
 
@@ -270,6 +315,12 @@ ball_chaser_SOURCE_DIR:STATIC=/home/workspace/catkin_ws/Where-am-I/catkin_ws/src
 
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/kinetic/share/catkin/cmake
+
+//Dependencies for the target
+collision_map_creator_LIB_DEPENDS:STATIC=general;collision_map_creator_msgs;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;gazebo_transport;general;gazebo_physics;general;gazebo_sensors;general;gazebo_rendering;general;gazebo_gui;general;gazebo_client;general;gazebo_msgs;general;gazebo_math;general;gazebo_common;general;gazebo;general;boost_thread;general;boost_system;general;boost_filesystem;general;boost_program_options;general;boost_regex;general;boost_iostreams;general;boost_date_time;general;boost_chrono;general;boost_atomic;general;pthread;general;sdformat;general;protobuf;general;pthread;general;tbb;general;atomic;general;ignition-math2;general;sdformat;general;ignition-math2;
+
+//Dependencies for the target
+collision_map_creator_msgs_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libprotobuf.so;
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/kinetic/share/cpp_common/cmake
@@ -347,6 +398,12 @@ my_robot_BINARY_DIR:STATIC=/home/workspace/catkin_ws/Where-am-I/catkin_ws/build/
 //Value Computed by CMake
 my_robot_SOURCE_DIR:STATIC=/home/workspace/catkin_ws/Where-am-I/catkin_ws/src/my_robot
 
+//Value Computed by CMake
+pgm_map_creator_BINARY_DIR:STATIC=/home/workspace/catkin_ws/Where-am-I/catkin_ws/build/pgm_map_creator
+
+//Value Computed by CMake
+pgm_map_creator_SOURCE_DIR:STATIC=/home/workspace/catkin_ws/Where-am-I/catkin_ws/src/pgm_map_creator
+
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
 
@@ -362,6 +419,9 @@ roscpp_traits_DIR:PATH=/opt/ros/kinetic/share/roscpp_traits/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/kinetic/share/rosgraph_msgs/cmake
 
+//The directory containing a CMake configuration file for rospy.
+rospy_DIR:PATH=/opt/ros/kinetic/share/rospy/cmake
+
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/kinetic/share/rostime/cmake
 
@@ -376,6 +436,18 @@ xmlrpcpp_DIR:PATH=/opt/ros/kinetic/share/xmlrpcpp/cmake
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: Boost_DIR
+Boost_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_INCLUDE_DIR
+Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR_DEBUG
+Boost_LIBRARY_DIR_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR_RELEASE
+Boost_LIBRARY_DIR_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_DEBUG
+Boost_SYSTEM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_RELEASE
+Boost_SYSTEM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //catkin environment
 CATKIN_ENV:INTERNAL=/home/workspace/catkin_ws/Where-am-I/catkin_ws/build/catkin_generated/env_cached.sh
 CATKIN_TEST_RESULTS_DIR:INTERNAL=/home/workspace/catkin_ws/Where-am-I/catkin_ws/build/test_results
@@ -473,7 +545,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -512,10 +584,48 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
+//Details about finding Protobuf
+FIND_PACKAGE_MESSAGE_DETAILS_Protobuf:INTERNAL=[/usr/lib/x86_64-linux-gnu/libprotobuf.so][/usr/include][v()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python][v2.7.12()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+GAZEBO_CFLAGS:INTERNAL=-std=c++11;-pthread;-std=c++11;-I/usr/include/gazebo-7;-I/usr/include/sdformat-4.0;-I/usr/include/ignition/math2
+GAZEBO_CFLAGS_I:INTERNAL=
+GAZEBO_CFLAGS_OTHER:INTERNAL=-std=c++11;-pthread;-std=c++11
+GAZEBO_FOUND:INTERNAL=1
+GAZEBO_INCLUDEDIR:INTERNAL=/usr/include
+GAZEBO_INCLUDE_DIRS:INTERNAL=/usr/include/gazebo-7;/usr/include/sdformat-4.0;/usr/include/ignition/math2
+GAZEBO_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu/gazebo-7/plugins;-Wl,-rpath,/usr/lib/x86_64-linux-gnu/gazebo-7/plugins;-lgazebo_transport;-lgazebo_physics;-lgazebo_sensors;-lgazebo_rendering;-lgazebo_gui;-lgazebo_client;-lgazebo_msgs;-lgazebo_math;-lgazebo_common;-lgazebo;-lboost_thread;-lboost_system;-lboost_filesystem;-lboost_program_options;-lboost_regex;-lboost_iostreams;-lboost_date_time;-lboost_chrono;-lboost_atomic;-lpthread;-lsdformat;-lprotobuf;-pthread;-lpthread;-ltbb;-latomic;-lignition-math2
+GAZEBO_LDFLAGS_OTHER:INTERNAL=-Wl,-rpath,/usr/lib/x86_64-linux-gnu/gazebo-7/plugins;-pthread
+GAZEBO_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+GAZEBO_LIBRARIES:INTERNAL=gazebo_transport;gazebo_physics;gazebo_sensors;gazebo_rendering;gazebo_gui;gazebo_client;gazebo_msgs;gazebo_math;gazebo_common;gazebo;boost_thread;boost_system;boost_filesystem;boost_program_options;boost_regex;boost_iostreams;boost_date_time;boost_chrono;boost_atomic;pthread;sdformat;protobuf;pthread;tbb;atomic;ignition-math2
+GAZEBO_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu/gazebo-7/plugins
+GAZEBO_LIBS:INTERNAL=
+GAZEBO_LIBS_L:INTERNAL=
+GAZEBO_LIBS_OTHER:INTERNAL=
+GAZEBO_LIBS_PATHS:INTERNAL=
+GAZEBO_PREFIX:INTERNAL=/usr
+GAZEBO_STATIC_CFLAGS:INTERNAL=-std=c++11;-pthread;-std=c++11;-I/usr/include/gazebo-7;-I/usr/include/sdformat-4.0;-I/usr/include/ignition/math2
+GAZEBO_STATIC_CFLAGS_I:INTERNAL=
+GAZEBO_STATIC_CFLAGS_OTHER:INTERNAL=-std=c++11;-pthread;-std=c++11
+GAZEBO_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/gazebo-7;/usr/include/sdformat-4.0;/usr/include/ignition/math2
+GAZEBO_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu/gazebo-7/plugins;-Wl,-rpath,/usr/lib/x86_64-linux-gnu/gazebo-7/plugins;-lgazebo_transport;-lgazebo_physics;-lgazebo_sensors;-lgazebo_rendering;-lgazebo_gui;-lgazebo_client;-lgazebo_msgs;-lgazebo_math;-lgazebo_common;-lgazebo;-lboost_thread;-lboost_system;-lboost_filesystem;-lboost_program_options;-lboost_regex;-lboost_iostreams;-lboost_date_time;-lboost_chrono;-lboost_atomic;-lpthread;-lsdformat;-lprotobuf;-pthread;-lpthread;-lz;-ltbb;-latomic;-lignition-math2
+GAZEBO_STATIC_LDFLAGS_OTHER:INTERNAL=-Wl,-rpath,/usr/lib/x86_64-linux-gnu/gazebo-7/plugins;-pthread
+GAZEBO_STATIC_LIBDIR:INTERNAL=
+GAZEBO_STATIC_LIBRARIES:INTERNAL=gazebo_transport;gazebo_physics;gazebo_sensors;gazebo_rendering;gazebo_gui;gazebo_client;gazebo_msgs;gazebo_math;gazebo_common;gazebo;boost_thread;boost_system;boost_filesystem;boost_program_options;boost_regex;boost_iostreams;boost_date_time;boost_chrono;boost_atomic;pthread;sdformat;protobuf;pthread;z;tbb;atomic;ignition-math2
+GAZEBO_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu/gazebo-7/plugins
+GAZEBO_STATIC_LIBS:INTERNAL=
+GAZEBO_STATIC_LIBS_L:INTERNAL=
+GAZEBO_STATIC_LIBS_OTHER:INTERNAL=
+GAZEBO_STATIC_LIBS_PATHS:INTERNAL=
+GAZEBO_VERSION:INTERNAL=7.15.0
+GAZEBO_gazebo_INCLUDEDIR:INTERNAL=
+GAZEBO_gazebo_LIBDIR:INTERNAL=
+GAZEBO_gazebo_PREFIX:INTERNAL=
+GAZEBO_gazebo_VERSION:INTERNAL=
 GMOCK_FROM_SOURCE_FOUND:INTERNAL=TRUE
 GMOCK_FROM_SOURCE_INCLUDE_DIRS:INTERNAL=/usr/include
 GMOCK_FROM_SOURCE_LIBRARIES:INTERNAL=gmock
@@ -536,10 +646,77 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PROTOBUF_INCLUDE_DIR
+PROTOBUF_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PROTOBUF_LIBRARY
+PROTOBUF_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PROTOBUF_LIBRARY_DEBUG
+PROTOBUF_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PROTOBUF_LITE_LIBRARY
+PROTOBUF_LITE_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PROTOBUF_LITE_LIBRARY_DEBUG
+PROTOBUF_LITE_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PROTOBUF_PROTOC_EXECUTABLE
+PROTOBUF_PROTOC_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PROTOBUF_PROTOC_LIBRARY
+PROTOBUF_PROTOC_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PROTOBUF_PROTOC_LIBRARY_DEBUG
+PROTOBUF_PROTOC_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //This needs to be in PYTHONPATH when 'setup.py install' is called.
 //  And it needs to match.  But setuptools won't tell us where
 // it will install things.
 PYTHON_INSTALL_DIR:INTERNAL=lib/python2.7/dist-packages
+SDF_CFLAGS:INTERNAL=-std=c++11;-I/usr/include/sdformat-4.0;-I/usr/include/ignition/math2
+SDF_CFLAGS_I:INTERNAL=
+SDF_CFLAGS_OTHER:INTERNAL=-std=c++11
+SDF_FOUND:INTERNAL=1
+SDF_INCLUDEDIR:INTERNAL=/usr/include
+SDF_INCLUDE_DIRS:INTERNAL=/usr/include/sdformat-4.0;/usr/include/ignition/math2
+SDF_LDFLAGS:INTERNAL=-lsdformat;-lignition-math2
+SDF_LDFLAGS_OTHER:INTERNAL=
+SDF_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+SDF_LIBRARIES:INTERNAL=sdformat;ignition-math2
+SDF_LIBRARY_DIRS:INTERNAL=
+SDF_LIBS:INTERNAL=
+SDF_LIBS_L:INTERNAL=
+SDF_LIBS_OTHER:INTERNAL=
+SDF_LIBS_PATHS:INTERNAL=
+SDF_PREFIX:INTERNAL=/usr
+SDF_STATIC_CFLAGS:INTERNAL=-std=c++11;-I/usr/include/sdformat-4.0;-I/usr/include/ignition/math2
+SDF_STATIC_CFLAGS_I:INTERNAL=
+SDF_STATIC_CFLAGS_OTHER:INTERNAL=-std=c++11
+SDF_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/sdformat-4.0;/usr/include/ignition/math2
+SDF_STATIC_LDFLAGS:INTERNAL=-lsdformat;-lignition-math2
+SDF_STATIC_LDFLAGS_OTHER:INTERNAL=
+SDF_STATIC_LIBDIR:INTERNAL=
+SDF_STATIC_LIBRARIES:INTERNAL=sdformat;ignition-math2
+SDF_STATIC_LIBRARY_DIRS:INTERNAL=
+SDF_STATIC_LIBS:INTERNAL=
+SDF_STATIC_LIBS_L:INTERNAL=
+SDF_STATIC_LIBS_OTHER:INTERNAL=
+SDF_STATIC_LIBS_PATHS:INTERNAL=
+SDF_VERSION:INTERNAL=4.0.0
+SDF_sdformat_INCLUDEDIR:INTERNAL=
+SDF_sdformat_LIBDIR:INTERNAL=
+SDF_sdformat_PREFIX:INTERNAL=
+SDF_sdformat_VERSION:INTERNAL=
+//Components requested for this build tree.
+_Boost_COMPONENTS_SEARCHED:INTERNAL=system
+//Last used Boost_INCLUDE_DIR value.
+_Boost_INCLUDE_DIR_LAST:INTERNAL=/usr/include
+//Last used Boost_LIBRARY_DIR_DEBUG value.
+_Boost_LIBRARY_DIR_DEBUG_LAST:INTERNAL=/usr/lib/x86_64-linux-gnu
+//Last used Boost_LIBRARY_DIR_RELEASE value.
+_Boost_LIBRARY_DIR_RELEASE_LAST:INTERNAL=/usr/lib/x86_64-linux-gnu
+//Last used Boost_NAMESPACE value.
+_Boost_NAMESPACE_LAST:INTERNAL=boost
+//Last used Boost_USE_MULTITHREADED value.
+_Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
+__pkg_config_checked_GAZEBO:INTERNAL=1
+__pkg_config_checked_SDF:INTERNAL=1
+prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
 

@@ -1,2 +1,2 @@
-ball_chaser:my_robot
+ball_chaser:my_robot:pgm_map_creator
 -DCATKIN_DEVEL_PREFIX=/home/workspace/catkin_ws/Where-am-I/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/workspace/catkin_ws/Where-am-I/catkin_ws/install -G Unix Makefiles
