@@ -34,11 +34,14 @@ We need a launch file to use this package.
 
 Here is the list of nodes required for AMCL package to operate:
 - Map Server Node `name="map_server"`
+
 The `map_server` node provides map data as a ROS service to other nodes such as the `amcl` node. 
 Here, `map_server` node will locate the map you created in the Map Setup step and send it out as the map data.
 - AMCL Node `namd="AMCL"`
+
  `amcl` node takes `odometry` and `laser scan` data to perform the AMCL localization.
 - Move Base Node `name="move_base"`
+
 Using `move_base` package, you can define a navigation goal position for your robot in the map, and the robot will navigate to that goal position. 
 
 The `move_base` package is a very powerful tool. 
